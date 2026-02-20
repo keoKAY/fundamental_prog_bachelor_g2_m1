@@ -1,5 +1,46 @@
 #include <iostream>
 using namespace std;
+void salaryFinder()
+{
+    string name;
+    char gender;
+    float hours, wages, salary;
+
+    cout << "\n ---------[Salary Finder]-------------" << endl;
+    cout << "Enter worker name: ";
+    cin.ignore();
+    getline(cin, name);
+    // cin >> name;
+    cout << "Enter gender: ";
+    cin >> gender;
+    cout << "Enter working hours (hrs): ";
+    cin >> hours;
+    cout << "Enter wage($): ";
+    cin >> wages;
+
+    salary = hours * wages;
+    cout << "\n -----------[OUTPUT]---------------" << endl;
+    cout << "Name is : " << name << endl;
+    cout << "Gender is : " << gender << endl;
+    cout << "Hours : " << hours << "hrs" << "  Wage : " << wages << "$" << endl;
+    cout << "Salary is : " << salary << "$" << endl;
+}
+void menu(){
+    cout << "==========<<Menu>>=========" << endl;
+        cout << "1. Salary Finder Program" << endl;
+        cout << "2. Money Exchange Program" << endl;
+        cout << "3. Calculator Program" << endl;
+        cout << "4. Exit " << endl;
+
+        cout << ">> Choose your option(1-4): ";
+}
+
+void exchangeMoney(){
+    // your code here 
+}
+void calculator(){
+    // your code here 
+}
 int main()
 {
     system("clear");
@@ -7,60 +48,27 @@ int main()
 
     do
     {
-        cout << "==========<<Menu>>=========" << endl;
-        cout << "1. Salary Finder Program" << endl;
-        cout << "2. Money Exchange Program" << endl;
-        cout << "3. Calculator Program" << endl;
-        cout << "4. Exit " << endl;
-
-        cout << ">> Choose your option(1-4): ";
+        menu();
         cin >> option;
 
         switch (option)
         {
         case 1:
         {
-            string name;
-            char gender;
-            float hours, wages, salary;
-
-            cout << "\n ---------[Salary Finder]-------------" << endl;
-            cout << "Enter worker name: ";
-            cin.ignore(); 
-            getline(cin,name); 
-            // cin >> name;
-            cout << "Enter gender: ";
-            cin >> gender;
-            cout << "Enter working hours (hrs): ";
-            cin >> hours;
-            cout << "Enter wage($): ";
-            cin >> wages;
-
-            salary = hours * wages;
-            cout << "\n -----------[OUTPUT]---------------" << endl;
-            cout << "Name is : " << name << endl;
-            cout << "Gender is : " << gender << endl;
-            cout << "Hours : " << hours << "hrs" << "  Wage : " << wages << "$" << endl;
-            cout << "Salary is : " << salary << "$" << endl;
+            salaryFinder();
             break;
         }
         case 2:
         {
-            cout << "------------[Money Exchange ]------------" << endl;
-            // 1. Exchange from USD -> KHR
-            // 2. Exchange from KHR -> USD
-            // rate = 4000 riels
+            exchangeMoney();
             break;
         }
         case 3:
         {
-            // Calculator (+,-,*,/)
-            // enter a , b 
-            // choose the operators for the calculation!!
-            
+            calculator(); 
             break;
         }
-            case 4:
+        case 4:
             cout << "Exit from the program! "
                  << endl;
             break;
