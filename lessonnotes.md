@@ -3,6 +3,8 @@ Array Lesson
 - Reviews: 
     - Initialzied array with the print functions 
 - Teachings
+    - Search 
+    - Search + Update 
     - Algorithm to delete array 
     - Algorithm to sort array (ascending, descending )
     - Arrays with struct 

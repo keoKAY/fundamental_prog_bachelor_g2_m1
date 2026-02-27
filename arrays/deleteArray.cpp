@@ -9,7 +9,16 @@ void printArray(int scores[], int size ){
     cout<<endl; 
 } 
 
-// create delete array function here ! 
+// create delete array function here !
+int deleteElement(int scores[], int size, int target){
+    int index = 0 ; 
+    for(int i = 0; i<size; i++){
+        if(scores[i]!=target){
+            scores[index++]= scores[i]; 
+        }
+    }
+    return index; 
+} 
 int main(){
     system("clear"); 
     // initialize 
@@ -21,16 +30,8 @@ int main(){
     // Write the code here in order to delete element
     int target = 50; 
     cout<<"Target is : "<<target<<endl;
-    int newIndex = 0;  
-    for(int i = 0; i<size; i++){
-        if(scores[i]!=target){
-            // update arrays values 
-            scores[newIndex++] = scores[i]; 
-            //newIndex++; 
-        }
-    }
-    size = newIndex; 
-
+    size = deleteElement(scores,size,target);
+    //size = deleteElement(scores,size,60);  
     printArray(scores,size); 
     cout<<endl; 
     return 0 ; 
