@@ -1,5 +1,6 @@
 #include <iostream>
 using namespace std;
+// USERDEFINED TYPE 
 struct Worker
 {
     int id;
@@ -28,6 +29,14 @@ struct Worker
         cout << "Enter salary: ";
         cin >> salary;
     }
+    void update(){
+        cout<<"Enter new name: "; 
+        getline(cin, name); 
+        cout<<"Enter new gender: "; 
+        cin>>gender; 
+        cout<<"Enter new salary: "; 
+        cin>>salary; 
+    }
 
     void output()
     {
@@ -55,6 +64,7 @@ int search(Worker workers[], int n)
     int searchId;
     cout << "Enter ID to search: ";
     cin >> searchId;
+    cin.ignore();
     for (int i = 0; i < n; i++)
     {
         if (workers[i].id == searchId)
@@ -78,13 +88,13 @@ int main()
     {
         cout << "------------[ Worker program]---------" << endl;
         cout << "1. Add new worker " << endl;
-        cout << "2. Search worker " << endl;
+        cout << "2. Search worker BY ID  " << endl;
         cout << "3. Delete worker " << endl;
         cout << "4. Show Workers " << endl;
         cout << "5. Update Workers" << endl;
         cout << "6. Exit  " << endl;
         cout << ">>> Choose option 1-6: ";
-        cin >> option;
+        cin >> option; 
 
         switch (option)
         {
@@ -105,9 +115,6 @@ int main()
         break;
         case 2:
         {
-            // search worker first
-            // if exists -> update
-            // else -> not found
             if (counter == 0)
             {
                 cout << "Workers is empty! No data to search" << endl;
@@ -126,6 +133,18 @@ int main()
         }
         break;
         case 3:
+            {
+                int index = search(workerList,counter); 
+                if(index==-1){
+                    cout<<" Failed to delete, data doesn't exist "<<endl; 
+                }else{
+                    for(int i = index; i<counter -1 ; i++){
+                        workerList[i] = workerList[i+1]; 
+                    }
+                    counter--; 
+                    cout<<" ✅ Delete successfuly !"<<endl; 
+                }
+            }
             break;
         case 4:
         {
@@ -133,6 +152,23 @@ int main()
         }
         break;
         case 5:
+        {
+            if(counter==0)
+                cout<<"There is no data to update"<<endl; 
+            else 
+                {
+                    int index = search(workerList, counter); 
+                    if(index==-1){
+                        cout<<" ❌ Result not found! \nCannot update the data"<<endl; 
+                    }else{
+                        Worker newWorker = workerList[index]; 
+                        newWorker.update(); 
+                        // add updated worker to the list 
+                        workerList[index] = newWorker; 
+                        cout<<" ✅ Updated successfully"<<endl;
+                    }
+                }
+        }
             break;
         case 6:
             cout << "Exit from the program " << endl;
