@@ -12,7 +12,6 @@ void sum(){
 }
 int main(){
     system("clear"); 
-
     cout<<sum(10,20)<<endl; 
     cout<<sum(10,10,30)<<endl; 
     sum(); 
